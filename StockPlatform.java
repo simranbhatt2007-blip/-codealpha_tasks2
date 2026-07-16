@@ -69,24 +69,31 @@ class Investor {
 public class StockPlatform {
     public static Stock[] marketData = new Stock[3];
     public static Investor client;
-    // Changed save file name to look unique
+
+    
     public static String saveFile = "market_ledger.txt";
 
     public static void main(String[] args) {
-        // Changed market data to Indian Companies with unique stock prices
+       
+
+        
         marketData[0] = new Stock("TATA", "Tata Motors", 925.40);
         marketData[1] = new Stock("RELI", "Reliance Industries", 2460.15);
         marketData[2] = new Stock("ZOMA", "Zomato Ltd.", 195.80);
 
-        // Changed default investor name and budget
-        client = new Investor("Rahul", 15000.00);
+       
+        
+        client = new Investor("Simran", 50000.00);
         loadUserData(); 
 
         Scanner inputScanner = new Scanner(System.in);
         boolean keepsRunning = true;
 
-        // Custom screen headers
-        System.out.println("=== SIMULATED SHARE MARKET ===");
+
+        
+        System.out.println("=== Online Trading Platform ===");
+
+        
 
         while (keepsRunning) {
             System.out.println("\n1. Show Current Rates");
@@ -116,6 +123,7 @@ public class StockPlatform {
         }
         inputScanner.close();
     }
+    
 
     public static void showMarket() {
         System.out.println("\n--- Live Market Board ---");
@@ -134,6 +142,7 @@ public class StockPlatform {
             return;
         }
 
+        
         System.out.print("Enter quantity to purchase: ");
         int buyQty = inputScanner.nextInt();
         double absoluteCost = matchedStock.rate * buyQty;
@@ -145,6 +154,7 @@ public class StockPlatform {
             System.out.println("Order failed: You do not have enough funds.");
         }
     }
+    
 
     public static void processSale(Scanner inputScanner) {
         System.out.print("Enter stock symbol to sell: ");
@@ -184,6 +194,7 @@ public class StockPlatform {
             }
         }
 
+        
         if (zeroHoldings) {
             System.out.println("No active stocks found in your portfolio.");
         }
